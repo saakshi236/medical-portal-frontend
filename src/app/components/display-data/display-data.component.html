@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Complete Database</li>
+            </ol>
+        </nav>
+        <div class="col-md-12">
+            <div class="card-body">
+                <h3 style="text-align: center;">Doctor Details</h3>
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Specialisation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of doctors">
+                            <td>{{ data.id }}</td>
+                            <td>{{ data.name }}</td>
+                            <td>{{ data.age }}</td>
+                            <td>{{ data.gender }}</td>
+                            <td>{{ data.specialisation }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <h3 style="text-align: center;">Patient Details</h3>
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Consulting Doctor</th>
+                            <th scope="col">Date Of Visit</th>
+                            <th scope="col">Prescription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of patients">
+                            <td>{{ data.id }}</td>
+                            <td>{{ data.name }}</td>
+                            <td>{{ data.doctor }}</td>
+                            <td>{{ data.dateOfVisit | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{ data.prescription }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

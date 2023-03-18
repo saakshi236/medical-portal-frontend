@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Search Patient Information</li>
+            </ol>
+        </nav>
+        <div class="col-md-12">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Patient's ID" aria-label="Patient's ID"
+                        aria-describedby="basic-addon2" [(ngModel)]="patientId">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-warning" type="button" (click)="searchPatient()">Search</button>
+                    </div>
+                </div>
+                <ng-template #validMessage>Please enter a valid Patient ID!</ng-template>
+                <div *ngIf="patientObj.name != null; else validMessage">
+                    <h3>Patient Data</h3>
+                    <p>ID: {{patientObj.id}}</p>
+                    <p>Name: {{patientObj.name}}</p>
+                    <p>Consulting Doctor: {{this.docName}}</p>
+                    <p>Consultation Date: {{patientObj.dateOfVisit | date: 'dd/MM/yyyy'}}</p>
+                    <p>Prescription: {{patientObj.prescription}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

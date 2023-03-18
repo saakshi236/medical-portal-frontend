@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add New Patient Record</li>
+            </ol>
+        </nav>
+        <div class="col-md-12">
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" [(ngModel)]="patient.name" class="form-control" id="name" name="name"
+                            placeholder="Enter your name" required>
+                    </div>
+                    <div>
+                        <label class="doctor-dropdown">Select Doctor's Name:</label>
+                        <select [(ngModel)]="patient.doctor" name="doctor" id="doctor">
+                            <option disabled>--Select Doctor--</option>
+                            <option *ngFor="let data of doctors" value={{data.id}}>
+                                {{data.name}}
+                            </option>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateOfVisit">Date of Doctor's Visit:</label>
+                        <input type="date" class="form-control" id="dateOfVisit" [(ngModel)]="patient.dateOfVisit"
+                            name="dateOfVisit">
+                    </div>
+                    <div class="form-group">
+                        <label for="prescription">Prescription:</label>
+                        <textarea class="form-control" rows="4" id="comment" id="prescription"
+                            [(ngModel)]="patient.prescription" name="prescription"></textarea>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

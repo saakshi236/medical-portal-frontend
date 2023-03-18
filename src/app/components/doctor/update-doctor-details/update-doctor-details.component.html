@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Update Doctor Details</li>
+            </ol>
+        </nav>
+        <div class="col-md-12">
+            <div class="card-body">
+                <div class="card my-5">
+                    <div class="card-body">
+                        <form (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" [(ngModel)]="doctorUpdate.name" class="form-control" id="name"
+                                    name="name" placeholder="Enter your name" required>
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="age"> Age</label> <br>
+                                <input type="number" [(ngModel)]="doctorUpdate.age" id="age" name="age">
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="gender"> Gender</label> <br>
+                                <input type="radio" [(ngModel)]="doctorUpdate.gender" name="gender" value="M">M
+                                <input type="radio" [(ngModel)]="doctorUpdate.gender" name="gender" value="F">F
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="options">Select Specialisation:</label>
+                                <div *ngFor="let option of options">
+                                    <label>
+                                        <input type="checkbox" name="options" value="{{option.value}}"
+                                            [(ngModel)]="option.checked" />
+                                        {{option.name}}
+                                    </label>
+                                </div>
+                            </div><br />
+
+                            <button type="submit" class="btn btn-info">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

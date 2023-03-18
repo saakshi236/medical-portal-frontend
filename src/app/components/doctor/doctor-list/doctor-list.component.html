@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Doctor Information</li>
+            </ol>
+        </nav>
+        <div class="col-md-12">
+            <div class="card-body">
+                <div>
+                    <label class="doctor-dropdown">Select Doctor's Name:</label>
+                    <select (change)="filterDoctors($event.target.value)" id="doctor">
+                        <option value="all">--All--</option>
+                        <option *ngFor="let data of doctors" value={{data.id}}> {{data.name}}</option>
+                    </select>
+                </div>
+                <ng-template #validMessage>Please select a valid Doctor's Name!</ng-template>
+                <div *ngIf="doctorObj.name != null; else validMessage">
+                    <div class="card-body">
+                        <p>ID: {{ doctorObj.id }}</p>
+                        <p>Name: {{ doctorObj.name }}</p>
+                        <p>Age: {{ doctorObj.age }}</p>
+                        <p>Gender: {{ doctorObj.gender }}</p>
+                        <p>Specialisation: {{ doctorObj.specialisation }}</p>
+                        <p>Patients Attended : {{ this.count }}</p>
+                        <div class="btn-group" role="group" aria-label="buttonGroup">
+                            <button type="button" class="btn btn-warning"
+                                (click)="updateFormValue(doctorObj.id)">Update</button>
+                            <button type="button" class="btn btn-danger"
+                                (click)="deleteDoctor(doctorObj.id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.doctor-dropdown {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#doctor {
+    margin: 0.5%;
+    border-radius: 5px;
+    border-color: rgb(205, 203, 203);
+}
